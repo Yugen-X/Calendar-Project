@@ -16,5 +16,13 @@ function calcTime(city, offset) {
     return `The local time in ${city} is ${nd.toLocaleString()}`;
 }
 let McKinneyTime = calcTime('McKinney', '-5');
+//displays the days to the HTML
 document.getElementById('current-month').innerHTML = getCurrentMonth;
 document.getElementById("mckinney-time").innerHTML = McKinneyTime;
+document.getElementById('monday').innerHTML = dayArr[1];
+document.getElementById('tuesday').innerHTML = dayArr[2];
+document.getElementById('wednsday').innerHTML = dayArr[3];
+document.getElementById('thursday').innerHTML = dayArr[4];
+document.getElementById('friday').innerHTML = dayArr[5];
+document.getElementById('saturday').innerHTML = dayArr[6];
+document.getElementById('sunday').innerHTML = dayArr[0];
