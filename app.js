@@ -1,28 +1,49 @@
-//get the current month of the year 
-const monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const currentMonth = new Date();
-let getCurrentMonth = monthArr[currentMonth.getMonth()];
-console.log(getCurrentMonth)
-//get the current day of the month
-const dayArr = ['Sunday' ,'Monday', 'Tuesday', 'Wednsday', 'Thursday', 'Friday', 'Saturday'];
-const currentDay = new Date();
-let today = dayArr[currentDay.getDay()];
-console.log(today);
-//time zone conversion
-function calcTime(city, offset) {
+function calcTime(offset) {
     d = new Date();
     utc = d.getTime() + (d.getTimezoneOffset() * 60000);
     nd = new Date(utc + (3600000*offset));
-    return `The local time in ${city} is ${nd.toLocaleString()}`;
+    console.log(nd.toLocaleString());
+    let stringDate = nd.toLocaleString();
+    // const stringArray = stringDate.split(", ");
+    // // console.log(stringArray[0]);
+    // // console.log(stringArray[1]);
+    // const dataArray = stringArray[0].split('/');
+    // // console.log(dataArray[0]);
+    // // console.log(dataArray[1]);
+    // // console.log(dataArray[2]);
+    // return dataArray;
+    return stringDate;
 }
-let McKinneyTime = calcTime('McKinney', '-5');
-//displays the days to the HTML
-document.getElementById('current-month').innerHTML = getCurrentMonth;
-document.getElementById("mckinney-time").innerHTML = McKinneyTime;
-document.getElementById('monday').innerHTML = dayArr[1];
-document.getElementById('tuesday').innerHTML = dayArr[2];
-document.getElementById('wednsday').innerHTML = dayArr[3];
-document.getElementById('thursday').innerHTML = dayArr[4];
-document.getElementById('friday').innerHTML = dayArr[5];
-document.getElementById('saturday').innerHTML = dayArr[6];
-document.getElementById('sunday').innerHTML = dayArr[0];
+let McKinneyTime = calcTime('-5');
+console.log(McKinneyTime)
+
+const date = new Date();
+
+const months = [
+'January',
+'February',
+'March',
+'April',
+'May',
+'June',
+'July',
+'August',
+'September',
+'October',
+'November',
+'December'
+];
+
+document.querySelector('.date h1').innerHTML = months[date.getMonth()];
+document.querySelector('.date div').innerHTML = `Time in McKinney, TX: ${McKinneyTime}`;
+
+
+
+
+
+
+
+
+
+
+
